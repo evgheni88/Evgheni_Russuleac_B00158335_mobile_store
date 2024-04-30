@@ -15,12 +15,12 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 
--- Dumping database structure for Evgheni_Russuleac_B00158335_mobile_store
+-- Dumping database structure for mobile_store
 DROP DATABASE IF EXISTS `mobile_store`;
 CREATE DATABASE IF NOT EXISTS `mobile_store` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE `mobile_store`;
 
--- Dumping structure for table Evgheni_Russuleac_B00158335_mobile_store.categories
+-- Dumping structure for table mobile_store.categories
 DROP TABLE IF EXISTS `categories`;
 CREATE TABLE IF NOT EXISTS `categories` (
   `category_id` int NOT NULL AUTO_INCREMENT,
@@ -28,13 +28,13 @@ CREATE TABLE IF NOT EXISTS `categories` (
   PRIMARY KEY (`category_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Dumping data for table Evgheni_Russuleac_B00158335_mobile_store.categories: ~3 rows (approximately)
+-- Dumping data for table mobile_store.categories: ~3 rows (approximately)
 INSERT INTO `categories` (`category_id`, `category_name`) VALUES
 	(1, 'Smartphones'),
 	(2, 'Tablets'),
 	(3, 'Smartwatches');
 
--- Dumping structure for table Evgheni_Russuleac_B00158335_mobile_store.products
+-- Dumping structure for table mobile_store.products
 DROP TABLE IF EXISTS `products`;
 CREATE TABLE IF NOT EXISTS `products` (
   `product_id` int NOT NULL AUTO_INCREMENT,
@@ -55,9 +55,9 @@ CREATE TABLE IF NOT EXISTS `products` (
   PRIMARY KEY (`product_id`),
   KEY `category_id` (`category_id`),
   CONSTRAINT `products_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `categories` (`category_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Dumping data for table Evgheni_Russuleac_B00158335_mobile_store.products: ~25 rows (approximately)
+-- Dumping data for table mobile_store.products: ~25 rows (approximately)
 INSERT INTO `products` (`product_id`, `category_id`, `brand`, `model`, `price`, `color`, `screen_size`, `battery_capacity`, `storage_capacity`, `front_camera_quality`, `back_camera_quality`, `operating_system`, `hardware`, `description`, `Quantity`) VALUES
 	(1, 1, 'Apple', 'IPhone 15 Pro Max', 1399.99, 'White', 6.7, '4441mAh', '256GB', '12MP', '48MP + 12MP + 12MP', 'iOS', 'A17 Pro', 'Introducing the iPhone 15 Pro Max: Unleash the Power of Possibilities! Prepare to embark on a journey of technological marvels with     the iPhone 15 Pro Max, a device that redefines the boundaries of what a smartphone can achieve. This exceptional flagship is a harmonious blend of raw power, exquisite craftsmanship, and uncompromising innovation, designed to exceed your wildest expectations.', 60),
 	(2, 1, 'Apple', 'IPhone 15 Pro Max', 1619.99, 'Black', 6.7, '4441mAh', '512GB', '12MP', '48MP + 12MP + 12MP', 'iOS', 'A17 Pro', 'Apple has once again managed to really differentiate its Pro models from the normal range. They have a significantly better camera, the latest and fastest processor and a better display. This makes the iPhone 15 Pro Max one of the best devices at the moment. The casing of the iPhone 15 Pro Max is this time made of titanium, a super-strong material that is a lot lighter than the usual aluminium. On the side, you\'ll find a customisable button so you can access your favourite apps and features at lightning speed.', 80),
@@ -85,7 +85,7 @@ INSERT INTO `products` (`product_id`, `category_id`, `brand`, `model`, `price`, 
 	(24, 2, 'Samsung', 'Galaxy Tab S9 Ultra', 1399.99, 'Beige', 14.6, '10880mAh', '256GB', '12MP + 12MP Ultra Wide', '13MP + 8MP Ultra Wide', 'Android', 'Qualcomm Snapdragon 8 Gen 2', 'Boasting a luxurious AMOLED 2X display the Galaxy Tab S9 Ultra Series offers more space and detail to enhance everything you could possibly want to do. With a creative canvas that goes on forever you really can do it all. The latest Snapdragon 8 Gen 2 processor keeps everything moving, so you\'re never slowed down by power-hungry, pro-grade apps. And as always, the iconic S Pen is never far away when inspiration strikes. With more space to work, watch, play and create, the Galaxy Tab S9 Ultra Series is the ultimate second screen, for life at home and away.', 56),
 	(28, 1, 'Nokia', '3310', 999.00, 'Blue', 6.1, '4500mAh', '128GB', '12MP', '48MP', 'Android', 'A17 Pro', 'Introducing the Nokia 3310: Unleash the Power of Possibilities! Prepare to embark on a journey of technological marvels with the Nokia 3310, a device that redefines the boundaries of what a smartphone can achieve. This exceptional flagship is a harmonious blend of raw power, exquisite craftsmanship, and uncompromising innovation, designed to exceed your wildest expectations.', 65);
 
--- Dumping structure for table Evgheni_Russuleac_B00158335_mobile_store.product_images
+-- Dumping structure for table mobile_store.product_images
 DROP TABLE IF EXISTS `product_images`;
 CREATE TABLE IF NOT EXISTS `product_images` (
   `image_id` int NOT NULL AUTO_INCREMENT,
@@ -94,9 +94,9 @@ CREATE TABLE IF NOT EXISTS `product_images` (
   PRIMARY KEY (`image_id`),
   KEY `product_id` (`product_id`),
   CONSTRAINT `product_images_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=78 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=80 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Dumping data for table Evgheni_Russuleac_B00158335_mobile_store.product_images: ~76 rows (approximately)
+-- Dumping data for table mobile_store.product_images: ~76 rows (approximately)
 INSERT INTO `product_images` (`image_id`, `product_id`, `image_url`) VALUES
 	(1, 1, 'images/products/iphone_15_pro_max_white_1.jpg'),
 	(2, 1, 'images/products/iphone_15_pro_max_white_2.jpg'),
@@ -175,7 +175,7 @@ INSERT INTO `product_images` (`image_id`, `product_id`, `image_url`) VALUES
 	(75, 24, 'images/products/samsung_galaxy_tab_s9ultra_beige_3.jpg'),
 	(77, 28, 'images/products/nokia3310.jpg');
 
--- Dumping structure for table Evgheni_Russuleac_B00158335_mobile_store.users
+-- Dumping structure for table mobile_store.users
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -194,9 +194,9 @@ CREATE TABLE IF NOT EXISTS `users` (
   `phone_number` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Dumping data for table Evgheni_Russuleac_B00158335_mobile_store.users: ~11 rows (approximately)
+-- Dumping data for table mobile_store.users: ~12 rows (approximately)
 INSERT INTO `users` (`id`, `title`, `firstname`, `lastname`, `email`, `password`, `birthdate`, `user_type`, `address_line1`, `address_line2`, `city`, `postal_code`, `country`, `phone_number`) VALUES
 	(2, 'Mr.', 'John', 'Smith', 'smith@mail.com', '$2y$10$LHmPTIiyD52NBfXv3JnbX.Ba0JqKU60m8oKNbAW/z3ofc0E9sO0cy', NULL, 'Standard', '', '', '', '', '', '00353860695602'),
 	(5, 'Mr.', 'Derek', 'White', 'white@mail.com', '$2y$10$AWhh4rOLrS.tFgy8cTuHKuOJspTIq4ucCCPxgLTbIvEzNKtpjG/Wq', '1990-02-23', 'Standard', '311 Wyckham Point', 'Wyckham Way', 'Dundrum', 'D16PW59', 'Ireland', '0860695602'),
@@ -208,7 +208,8 @@ INSERT INTO `users` (`id`, `title`, `firstname`, `lastname`, `email`, `password`
 	(11, 'Mr', 'John', 'Border', 'border@mail.com', '$2y$10$UQwZe0eJwLFL8NmQbTX2DOjd2zgj7IjWI7fMd.awVDBVVRj5dwk8K', '2050-12-13', 'Standard', NULL, NULL, NULL, NULL, NULL, NULL),
 	(12, 'Mrs', 'Ivy', 'Shomera', 'shomera@mail.com', '$2y$10$LAbvWpGOCipOds0cFYBJCOItTfyEUwi/MO5.BZXfXcyHKfW9b6CkS', '2030-06-16', 'Standard', NULL, NULL, NULL, NULL, NULL, NULL),
 	(13, 'Mr.', 'Jason', 'Statham', 'statham@mail.com', '$2y$10$kOyH5im9OgCYqKikOmrTn.qt8s8npMht4nCgw6hr01b5Zn7OS5YLy', '1990-04-26', 'Standard', '', '', '', '', '', ''),
-	(14, 'Mr.', 'Evgheni', 'Russuleac', 'russuleac@mail.com', '$2y$10$x250w0jHQOvEpEOnTXqF.eLWJl4MeMt/TCB4ZZ/quysinX4cx.XaS', '1988-04-21', 'Administrator', '', '', '', '', '', '');
+	(14, 'Mr.', 'Evgheni', 'Russuleac', 'russuleac@mail.com', '$2y$10$x250w0jHQOvEpEOnTXqF.eLWJl4MeMt/TCB4ZZ/quysinX4cx.XaS', '1988-04-21', 'Administrator', 'Castlegate Drive', '', 'Adamstown', '', 'Ireland', '0860695602'),
+	(16, 'Mr.', 'Nick', 'Nolan', 'nolan@mail.com', '$2y$10$l63cqgzK20Y4U5Zv44At..lvdq1cDLwthNmYD7QmIQk.02HeoEPFG', '1987-12-25', 'Standard', '', '', '', '', '', '');
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

@@ -13,7 +13,7 @@
         </div>
 
 
-        <!-- Pagination -->
+        <!-- Pagination! -->
         <?php include '../src/View/Snippets/pagination.php'; ?>
     </div>
 </div>
